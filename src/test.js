@@ -1,23 +1,36 @@
 
 import * as index from "../src/index.js";
 
-test("new Bowerman", () => {
-    const result = new index.Bowerman("Gena", 25, 25);
+test("add Team", () => {
+    const character = new index.Character("Gena");
+    const result = new index.Team().add(character);
     const expected =
         { "health": 100, "level": 1, "name": "Gena", "attack": 25, "defence": 25 };
     expect(result).toEqual(expected);
 })
-test("levelUp Bowerman health = 0 ", () => {
-    const person = new index.Bowerman("Gena", 25, 25);
-    person.health = 0;
-    const result = person.levelUp();
+test("addAll Team", () => {
+    const gena = new index.Character("Gena");
+    const frodo = new index.Character("Frodo");
+
+    const result = new index.Team().add(gena, frodo);
     const expected = "нельзя повысить левел умершего";
     expect(result).toEqual(expected);
 })
-test("level up Bowerman", () => {
-    const person = new index.Bowerman("Gena", 25, 25);
-    person.levelUp();
-    const expected =
-        { "health": 100, "level": 2, "name": "Gena", "attack": 30, "defence": 30 };
-    expect(person).toEqual(expected);
+test("to Array", () => {
+    let set = new Set;
+    const result = new index.Team().toArray(set);
+    const expected = [];
+    expect(result).toEqual(expected);
+})
+test("new error", () => { 
+    const result = new index.ErrorRepository("404", "not found");
+    const expected = new Map;
+    expected.set("404","not found");
+    expect(result.error).toEqual(expected);
+})
+test("translate", () => {
+    const error = new index.ErrorRepository("404", "not found");
+    const result = error.translate("500");
+    const expected = "Unknown error";
+    expect(result).toEqual(expected);
 })
