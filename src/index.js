@@ -1,13 +1,13 @@
 export class Team {
     constructor() {
-        this.members = new Set;
+        this.members = new Set();
     }
     add(character) {
-        this.members.set(character);
+        this.members.add(character);
     }
     addAll(...array) {
         array.forEach(element => {
-            this.members.set(element);
+            this.members.add(element);
         });
     }
     toArray(mySet) {
