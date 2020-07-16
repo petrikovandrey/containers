@@ -3,6 +3,9 @@ export class Team {
         this.members = new Set();
     }
     add(character) {
+        if(this.members.has(character)){
+            return "Персонаж уже добавлен";
+        }
         this.members.add(character);
     }
     addAll(...array) {

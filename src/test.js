@@ -10,7 +10,13 @@ test("add Team", () => {
     expected.add(character);
     expect(result).toEqual(expected);
 })
-
+test("duble add", () => {
+    const character = new index.Character("Gena");
+    const team = new index.Team();
+    const expected = "Персонаж уже добавлен";
+    team.add(character);
+    expect(team.add(character)).toBe(expected);
+})
 test("addAll Team", () => {
     const gena = new index.Character("Gena");
     const frodo = new index.Character("Frodo");
