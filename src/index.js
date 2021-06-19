@@ -1,23 +1,3 @@
-export class Team {
-    constructor() {
-        this.members = new Set();
-    }
-    add(character) {
-        if(this.members.has(character)){
-            return "Персонаж уже добавлен";
-        }
-        this.members.add(character);
-    }
-    addAll(...array) {
-        array.forEach(element => {
-            this.members.add(element);
-        });
-    }
-    toArray(mySet) {
-        return Array.from(mySet);
-    }
-}
-
 export class ErrorRepository {
     constructor(code, description) {
         this.error = new Map;
