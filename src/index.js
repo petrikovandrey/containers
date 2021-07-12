@@ -1,4 +1,4 @@
-export class ErrorRepository {
+class ErrorRepository {
   constructor(code, description) {
     this.error = new Map();
     this.error.set(code, description);
@@ -11,3 +11,6 @@ export class ErrorRepository {
     return 'Unknown error';
   }
 }
+
+// eslint-disable-next-line import/prefer-default-export
+export { ErrorRepository };
