@@ -1,32 +1,13 @@
 export class ErrorRepository {
-    constructor(code, description) {
-        this.error = new Map;
-        this.error.set(code, description)
-    }
-    translate(code) {
-        if (this.error.has(code)) {
-            return this.error.get(code);
-        } else {
-            return "Unknown error";
-        }
-    }
-}
+  constructor(code, description) {
+    this.error = new Map();
+    this.error.set(code, description);
+  }
 
-export class Character {
-    constructor(name) {
-        this.name = name;
-        this.health = 100;
-        this.level = 1;
+  translate(code) {
+    if (this.error.has(code)) {
+      return this.error.get(code);
     }
-    levelUp() {
-        console.log(this);
-        if (this.health === 0) {
-            return "нельзя повысить левел умершего";
-        }
-        this.level += 1;
-        this.attack += this.attack * 0.2;
-        this.defence += this.defence * 0.2;
-        this.health = 100;
-        console.log(this);
-    }
+    return 'Unknown error';
+  }
 }
